@@ -1,0 +1,59 @@
+Blackjack Simulation Program
+Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
+Distributed under the GNU General Public License, see COPYING.
+
+Description:
+This is a very basic console-based blackjack simulation program.  The game
+of blackjack is described at http://wizardofodds.com/games/blackjack.
+The deal style is "American Blackjack" - after a round of betting, the
+deal goes around the table such that players and dealer receive two cards.
+The player cards are dealt face-up, the dealer receives one card face up
+and one card face down.  Surrender is not allowed.
+
+To play interactively, just run the program, eg:
+  ./blackjack
+
+To play the program to analyze a specific playing strategy, run:
+  ./blackjack <strategyname>
+
+  Currently implemented strategies are:
+	basic - "basic" strategy - http://wizardsofodds.com/games/blackjack
+	cardcount - Simple Tens Counting Strategy - simple card counting
+				http://www.allaboutblackjack.com/cardcounting.html
+	dealer - always hit until soft 17
+	interactive - displays cards, prompts for play on the console
+
+  When using a non-interactive strategy, the software will dump a
+  total of statistics every 25,000 hands.  (It will display a win
+  percentage for every possible initial player hand / dealer hand,
+  as well as the current bankroll.)  An 80x40 line terminal is
+  recommended.
+
+Standard Vegas Blackjack rules apply, as:
+- A 6 deck shoe is used for dealing cards.
+- The object is to have a higher score than the dealer - each face card 
+  (Jack, Queen, King) is worth 10, each Ace is worth 1 or 11, whichever
+  most benefits the hand.
+- Splitting Aces results in exactly one card per hand.
+- Double after split is allowed.
+- Blackjack on deal (a deal of 21 points -- Ace + face card or 10) pays
+  the player 3:2.
+- Insurance pays 2:1 and must be exactly 1/2 the players original bet.
+
+Compilation:
+GNU make is required.  Type 'make' in this directory to compile.
+An executable named 'blackjack' will be created.
+
+Platforms:
+Tested under:  Windows XP Pro, VisualStudio.NET 2003
+               Windows 2000, VisualStudio 6.0
+               Linux 2.4.25, glibc 2.2.5, g++ 2.95
+
+It is presumed to work under any unix platform with g++ and should work
+under any standards-compliant C++ platform with minimal changes.
+
+Support:
+Email ethomson@ravecomm.com for assistance, bug reports or contributions.
+Please be aware that support may not always be available or may be delayed
+due to my schedule.
+

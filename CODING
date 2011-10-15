@@ -1,0 +1,67 @@
+Blackjack Simulation Program
+Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
+Distributed under the GNU General Public License, see COPYING.
+
+If you intend to modify this software, please see the notes (below).
+
+ADDING MULTIPLE PLAYERS AND/OR MULTIPLE HANDS PER PLAYER::
+Currently, this implementation supports only a single player and a single
+hand for that player.  However, every playing loop (see Table::play() and
+the other Table methods it calls in particular) considers a linked list of
+players having a linked list of hands.  (In fact, splitting a hand simply
+creates a second hand and adds it to the linked list.)  Thus, addition of
+multiple players should be very simple.  Note: you will need to modify
+Player::clearHands() which assumes that it will rebuild only a single hand.
+I'd suggest the Player object keep track of how many hands he wants to play.
+Note that each player keeps track of their own statistics, so dumping
+statistics will need to be modified to be multi-player friendly.
+
+
+ADDING NEW STRATEGIES::
+All the player decision-making is in the Strategy object.  Currently,
+there are 3 strategies - StrategyVegasDealer (always hits until soft 17
+or greater is reached), StrategyBasic (implements the by-the-book basic
+strategy) and StrategyInteractive (console-interactive play.)  You
+probably want to look at StrategyBasic as a good template for your
+new strategy.
+
+
+BLACKJACK VARIATIONS::
+This game implements standard US Vegas-style BlackJack.  If you wanted
+to implement a different BlackJack variation ("Double Exposure" or
+"European Blackjack" for instance), you will need to change the Table
+object.  All the rules are in the Table object, except the player
+gameplay which is in the Strategy objects.  If you want to do this,
+please rename the Table class to TableVegasBlackjack and create a pure
+virtual class called Table.  Also please move the Strategy classes to
+StrategyVegasBlackjackBasic (for example).  Feel free to come up with
+a shorter naming scheme, but lets not have two copies of the same software
+floating around that differ only in rules.  That way if there's a bug in
+the LinkedList class, for example, it needs only be fixed once.
+
+
+NOTES ON MODIFYING THIS SOFTWARE::
+- Please use cross-platform types (uint8_t, uint16_t, etc.)  TCHAR is
+  not portable and your changes will not work on Unix boxes.
+
+- Please use the smallest type which will fit your needs.  This software
+  was intended to run millions of hands and memory usage (or worse, memory
+  leaks) can add up quickly.
+
+- Please use exceptions in constructors whenever you allocate memory via
+  malloc() or new.
+
+- Please use ASSERT() to check preconditions and conditions that should
+  not occur.  ASSERT() is a macro only compiled into DEBUG code, so it's
+  a noop in production code.  There's no reason not to use it.
+
+- Please try to ensure that your code compiles without warnings.
+  Ideally, this should compile cleanly with "-Wall -W -pedantic" to gcc.
+
+- Please comment your code as much as to allow someone else to modify
+  it.
+
+- Please don't use C++'s iostreams.  It's impossible to write some
+  code cleanly (see Statistics::dump()) using iostreams, and having a
+  mix of C stdio and C++ iostreams in this software would be ugly.
+
