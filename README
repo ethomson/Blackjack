@@ -44,11 +44,6 @@ Compilation:
 GNU make is required.  Type 'make' in this directory to compile.
 An executable named 'blackjack' will be created.
 
-Platforms:
-Tested under:  Windows XP Pro, VisualStudio.NET 2003
-               Windows 2000, VisualStudio 6.0
-               Linux 2.4.25, glibc 2.2.5, g++ 2.95
-
 It is presumed to work under any unix platform with g++ and should work
 under any standards-compliant C++ platform with minimal changes.
 
