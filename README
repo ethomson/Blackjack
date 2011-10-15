@@ -1,5 +1,5 @@
 Blackjack Simulation Program
-Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
+Copyright (c) 2004, Ed Thomson <ethomson@edwardthomson.com>
 Distributed under the GNU General Public License, see COPYING.
 
 Description:
@@ -53,7 +53,7 @@ It is presumed to work under any unix platform with g++ and should work
 under any standards-compliant C++ platform with minimal changes.
 
 Support:
-Email ethomson@ravecomm.com for assistance, bug reports or contributions.
+Email ethomson@edwardthomson.com for assistance, bug reports or contributions.
 Please be aware that support may not always be available or may be delayed
 due to my schedule.
 
