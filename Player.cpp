@@ -1,3 +1,4 @@
+
 // Blackjack Simulation : Player
 // Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
