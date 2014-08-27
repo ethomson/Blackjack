@@ -1,4 +1,4 @@
-// Blackjack Simulation : Table
+// Blackjack Simulation : Table!
 // Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
