@@ -1,5 +1,4 @@
 // Blackjack Simulation : StrategyLookup
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -26,14 +25,14 @@
 // the strategy list structure - we don't need a class and it would
 // be harder to define (see StrategyLookup.cpp to see why.)
 struct StrategyList {
-	char *name;
-	char *description;
+	const char *name;
+	const char *description;
 };
 
 
 // return a strategy object by name (eg, "dealer" returns a
 // StrategyVegasDealer object
-Strategy *StrategyLookup(char *name);
+Strategy *StrategyLookup(const char *name);
 void StrategyList(FILE *fptr = stdout);
 
 #endif // STRATEGYLOOKUP_H

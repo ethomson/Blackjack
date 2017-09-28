@@ -1,5 +1,4 @@
 // Blackjack Simulation : StrategyLookup
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -29,7 +28,8 @@
 #include "StrategyBasic.h"
 #include "StrategyCardCount.h"
 #include "StrategyInteractive.h"
-#include "StrategyVegasDealer.h"
+#include "StrategyDealerVegas.h"
+#include "StrategyDealerHitsSoft17.h"
 
 // then add them to this list (with a unique name), making sure that NULL
 // stays at the end of the list
@@ -38,10 +38,11 @@ struct StrategyList strategyList[] = {
 	{ "cardcount", "Simple 10s Count Strategy" },
 	{ "interactive", "Interactive -- User is prompted for play" },
 	{ "dealer", "Dealer Strategy (Stands on soft 17)" },
+	{ "dealerhitssoft17", "Dealer Strategy (Hits on soft 17)" },
 	{ NULL, NULL },
 };
 
-Strategy *StrategyLookup(char *name)
+Strategy *StrategyLookup(const char *name)
 {
 	Strategy *obj = NULL;
 
@@ -56,7 +57,11 @@ Strategy *StrategyLookup(char *name)
 	}
 	else if(strcasecmp(name, "dealer") == 0)
 	{
-		obj = new StrategyVegasDealer();
+		obj = new StrategyDealerVegas();
+	}
+	else if (strcasecmp(name, "dealerhitssoft17") == 0)
+	{
+		obj = new StrategyDealerHitsSoft17();
 	}
 	else if(strcasecmp(name, "interactive") == 0)
 	{

@@ -1,5 +1,4 @@
 // Blackjack Simulation : Hand
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,6 +13,11 @@
 //
 // This is a hand -- it contains a list of cards (ie, the hand) and
 // a bet for that hand.
+
+
+
+
+
 
 #ifndef HAND_H
 #define HAND_H

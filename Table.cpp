@@ -1,5 +1,4 @@
 // Blackjack Simulation : Table
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -26,7 +25,7 @@
 #include "Shoe.h"
 #include "Strategy.h"
 #include "StrategyLookup.h"
-#include "StrategyVegasDealer.h"
+#include "StrategyDealerVegas.h"
 #include "StrategyInteractive.h"
 
 Table::Table()
@@ -40,7 +39,7 @@ Table::Table()
 	}
 
 	// create the dealer object
-	_dealerStrategy = new StrategyVegasDealer();
+	_dealerStrategy = new StrategyDealerVegas();
 	_dealerCards = new LinkedList<Card *>();
 	_dealerShowCards = new LinkedList<Card *>();
 
@@ -51,7 +50,7 @@ Table::Table()
 }
 
 // addPlayer: adds a player with a given strategy to the table
-void Table::addPlayer(char *strategyType)
+void Table::addPlayer(const char *strategyType)
 {
 	Player *player;
 	Strategy *strategy;
@@ -330,7 +329,7 @@ void Table::dealerBlackjack(Card *dealerShowCard)
 			uint8_t handScore = hand->getScore();
 
 			// a push occurs when the dealer shows a ten -- if the dealer
-			// shows an ace, the player must have taken insurance for even
+			// shows an ACE, the player must have taken insurance for even
 			// money, otherwise they lose their bet on dealer blackjack
 			if(handScore == 21 && dealerShowCard->getRank() == 'A')
 			{

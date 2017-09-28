@@ -1,4 +1,4 @@
-// Blackjack Simulation : StrategyCardCount
+// Blackjack Simulation : StrategyDealerHitsSoft17
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,13 +11,12 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
-// This is the basic blackjack strategy as defined at
-// http://wizardofodds.com/games/blackjack.
+// This is a strategy object which mimics the behavior of a vegas
+// dealer at a cheap table, where a dealer hits on a soft 17.
 
-#ifndef STRATEGYCARDCOUNT_H
-#define STRATEGYCARDCOUNT_H
+#ifndef STRATEGYDEALERHITSSOFT17_H
+#define STRATEGYDEALERHITSSOFT17_H
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include "Util.h"
@@ -27,29 +26,18 @@
 #include "Card.h"
 #include "Strategy.h"
 
-
-class StrategyCardCount : public Strategy
+class StrategyDealerHitsSoft17 : public Strategy
 {
 	public:
-		StrategyCardCount();
 		uint16_t getBuyin();
 		uint8_t getBet(uint16_t bank, uint16_t cardsLeft);
-		void notifyShuffle(void);
 		PlayAction play(LinkedList<Card *> *cardList);
 		PlayAction play(LinkedList<Card *> *cardList,
 		 LinkedList<Card *> *dealerCards);
 		bool insure(LinkedList<Card *> *dealerCards,
 		 LinkedList<Card *> *cardList);
-		void summarize(LinkedList<Card *> *dealerCards,
-		 LinkedList<Hand *> *hands);
 
 	private:
-		void updateWeight(Card *card);
-		float getTrueCount(uint16_t cardsLeft = 0);
-
-		uint8_t _bet;
-		int32_t _weight;
-		uint16_t _cardsLeft;
 };
 
-#endif // STRATEGYCARDCOUNT_H
+#endif // STRATEGYDEALERHITSSOFT17_H

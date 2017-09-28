@@ -1,4 +1,4 @@
-Blackjack Simulation Program!
+Blackjack Simulation Program
 Copyright (c) 2004, Ed Thomson <ethomson@edwardthomson.com>
 Distributed under the GNU General Public License, see COPYING.
 
@@ -44,11 +44,11 @@ Compilation:
 GNU make is required.  Type 'make' in this directory to compile.
 An executable named 'blackjack' will be created.
 
+Platforms:
+Tested under:  Windows XP Pro, VisualStudio.NET 2003
+               Windows 2000, VisualStudio 6.0
+               Linux 2.4.25, glibc 2.2.5, g++ 2.95
+
 It is presumed to work under any unix platform with g++ and should work
 under any standards-compliant C++ platform with minimal changes.
-
-Support:
-Email ethomson@edwardthomson.com for assistance, bug reports or contributions.
-Please be aware that support may not always be available or may be delayed
-due to my schedule.
 

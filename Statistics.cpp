@@ -1,5 +1,4 @@
-// Blackjack Simulation : Stats
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
+// Blackjack Simulation : Statistics
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -146,7 +145,7 @@ void Statistics::dump(Player *player, FILE *fptr)
 
 	// determine the winningness/losingness of this strategy
 	uint32_t buyin = player->getBuyin();
-	uint8_t bankroll = player->getBankroll();
+	uint16_t bankroll = player->getBankroll();
 
 	// amount won
 	int16_t winAmount = (int16_t)(bankroll - buyin);
@@ -155,11 +154,11 @@ void Statistics::dump(Player *player, FILE *fptr)
 	double incomePerHand = ((double)winAmount / (double)handsPlayed);
 
 	fprintf(fptr,
-	 "             HANDS PLAYED: %ld,  INCOME/HAND: $%f\n",
+	 "             HANDS PLAYED: %d,  INCOME/HAND: $%f\n",
 	 handsPlayed, incomePerHand);
 
 	fprintf(fptr,
-	 "      AMOUNT BOUGHT IN: $%ld,  CURRENT BANKROLL: $%d,  WINS: $%d\n",
+	 "      AMOUNT BOUGHT IN: $%d,  CURRENT BANKROLL: $%d,  WINS: $%d\n",
 	 buyin, bankroll, winAmount);
 }
 

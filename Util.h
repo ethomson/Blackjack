@@ -1,5 +1,4 @@
 // Blackjack Simulation : Util
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -18,8 +17,8 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-// Microsoft doesn't have stdint.h, so we need to define integer types
-// and limits
+// Very old MSVC doesn't have stdint.h, we need to defint integral
+// types and their limits.
 #ifdef NEEDS_INT_TYPES
 #define INT8_MAX		(127)
 #define INT16_MAX		(32767)
@@ -42,7 +41,7 @@
 
 // Seed the random number generator in a cross-platform manner
 #ifdef WIN32
-# define srand_portable()	srand(time(NULL) ^ GetCurrentThreadId() ^ GetCurrentProcessId())
+# define srand_portable()	srand((unsigned int)time(NULL) ^ (unsigned int)GetCurrentThreadId() ^ (unsigned int)GetCurrentProcessId())
 #else // WIN32
 # define srand_portable()	srand(time(NULL) ^ (getpid() + (getpid() << 15)))
 #endif // WIN32

@@ -1,5 +1,4 @@
 // Blackjack Simulation : Shoe
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -35,11 +34,6 @@
 
 Shoe::Shoe(uint8_t numdecks)
 {
-	// absolute maximum number of decks is 1260 - otherwise we can't
-	// hold the number of cards in the shoe in a 16-bit unsigned
-	if(numdecks > 1260)
-		throw std::invalid_argument("maximum number of decks is 1260");
-
 	// setup some defaults
 	_cards = NULL;
 	_draw = NULL;

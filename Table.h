@@ -1,5 +1,4 @@
-// Blackjack Simulation : Table!
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
+// Blackjack Simulation : Table
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -34,7 +33,7 @@ class Table
 		Table();
 
 		// add a player to the table (with name of strategy)
-		void addPlayer(char *strategyType);
+		void addPlayer(const char *strategyType);
 
 		// loop - does all the work of taking bets, dealing cards,
 		// paying in/out, etc.

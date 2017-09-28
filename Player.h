@@ -1,5 +1,4 @@
 // Blackjack Simulation : Player
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -31,7 +30,7 @@
 class Player
 {
 	public:
-		Player(char *strategyName = "dealer");
+		Player(const char *strategyName = "dealer");
 
 		// clear the hands - ready for a new deal
 		void clearHands();
@@ -53,13 +52,13 @@ class Player
 
 		// buyin - we keep track of how much money is put in and then
 		// put it into the bankroll
-		void addBuyin(uint8_t bank);
+		void addBuyin(uint16_t bank);
 
 		// add bankroll - suitable for pays to the player
-		void addBankroll(uint8_t bank, uint8_t bankChange = 0);
+		void addBankroll(uint16_t bank, uint16_t bankChange = 0);
 
 		// remove from bankroll - when a hand is played
-		void removeBankroll(uint8_t bank, uint8_t bankChange = 0);
+		void removeBankroll(uint16_t bank, uint16_t bankChange = 0);
 
 		// get the amount of the bankroll in dollars and cents
 		// we use an integer for change so that we don't deal with

@@ -1,6 +1,4 @@
-
 // Blackjack Simulation : Player
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -30,7 +28,7 @@
 #include "Statistics.h"
 
 
-Player::Player(char *strategyName)
+Player::Player(const char *strategyName)
 {
 	// set defaults
 	_handsPlayed = 0;
@@ -126,7 +124,7 @@ uint32_t Player::handsPlayed()
 
 // addBuyin: lets the player "buy in" - increase their bankroll
 //           useful for keeping statistics about buyin/payout percentage
-void Player::addBuyin(uint8_t bank)
+void Player::addBuyin(uint16_t bank)
 {
 	_buyinTotal += bank;
 	_bankroll += bank;
@@ -137,7 +135,7 @@ void Player::addBuyin(uint8_t bank)
 //              we do not use a float for bankroll to avoid floating
 //              point rounding errors.  it's difficult to bet
 //              9.99999999 dollars, after all
-void Player::addBankroll(uint8_t bank, uint8_t bankChange)
+void Player::addBankroll(uint16_t bank, uint16_t bankChange)
 {
 	ASSERT(bankChange < 100);
 
@@ -156,7 +154,7 @@ void Player::addBankroll(uint8_t bank, uint8_t bankChange)
 //                 realistically, bankChange should always be zero since
 //                 the table probably won't take change.
 //                 NOTE: you must do error checking in advance
-void Player::removeBankroll(uint8_t bank, uint8_t bankChange)
+void Player::removeBankroll(uint16_t bank, uint16_t bankChange)
 {
 	ASSERT(bankChange < 100);
 	ASSERT(bank <= _bankroll);

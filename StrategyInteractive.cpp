@@ -1,5 +1,4 @@
 // Blackjack Simulation : StrategyInteractive
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -101,17 +100,17 @@ PlayAction StrategyInteractive::play(LinkedList<Card *> *cardList,
 
 	// display the dealer's cards (* * for the first card indicates
 	// dealer's down card)
-	printf("DEALER:  * *  ");
+	printf("DEALER:  **  ");
 
 	// iterate through dealer's other cards, displaying them
 	while((card = dealerCards->iterate()) != NULL)
-		printf("%c %c  ", card->getRank(), card->getSuit());
+		printf("%c%c  ", card->getRank(), card->getSuit());
 
 	// pad the display
 	if(dealerCards->getCount() < longestHand)
 	{
 		for(int i = dealerCards->getCount(); i < longestHand; i++)
-			printf("     ");
+			printf("    ");
 	}
 	printf("\n");
 
@@ -121,7 +120,7 @@ PlayAction StrategyInteractive::play(LinkedList<Card *> *cardList,
 	printf("PLAYER:  ");
 	while((card = cardList->iterate()) != NULL)
 	{
-		printf("%c %c  ", card->getRank(), card->getSuit());
+		printf("%c%c  ", card->getRank(), card->getSuit());
 	}
 
 
@@ -142,13 +141,13 @@ PlayAction StrategyInteractive::play(LinkedList<Card *> *cardList,
 		bool splitAllowed = Hand::splitAllowed(cardList);
 
 		// build the prompt for input based on available play
-		strcpy(prompt, "Your action:  S)tand, H)it");
+		strcpy_s(prompt, 128, "Your action:  S)tand, H)it");
 
 		if(doubleAllowed)
-			strcat(prompt, ", D)ouble");
+			strcat_s(prompt, 128, ", D)ouble");
 
 		if(splitAllowed)
-			strcat(prompt, ", s(P)lit");
+			strcat_s(prompt, 128, ", s(P)lit");
 
 		input = getInput(prompt, (char)0);
 
@@ -194,7 +193,7 @@ bool StrategyInteractive::insure(LinkedList<Card *> *dealerCards,
 
 	// iterate through dealer's other cards, displaying them
 	while((card = dealerCards->iterate()) != NULL)
-		printf("%c %c  ", card->getRank(), card->getSuit());
+		printf("%c%c  ", card->getRank(), card->getSuit());
 
 	printf("\n");
 
@@ -202,7 +201,7 @@ bool StrategyInteractive::insure(LinkedList<Card *> *dealerCards,
 	// display the player's cards, iterating through each one
 	printf("PLAYER:  ");
 	while((card = cardList->iterate()) != NULL)
-		printf("%c %c  ", card->getRank(), card->getSuit());
+		printf("%c%c  ", card->getRank(), card->getSuit());
 
 	// display the score
 	printf("[%02d]    ", Hand::getScore(cardList));
@@ -271,13 +270,13 @@ void StrategyInteractive::summarize(LinkedList<Card *> *dealerCards,
 	// display the dealer cards, iterate through each one
 	printf("DEALER:  ");
 	while((card = dealerCards->iterate()) != NULL)
-		printf("%c %c  ", card->getRank(), card->getSuit());
+		printf("%c%c  ", card->getRank(), card->getSuit());
 
 	// add some padding so that totals line up in each column
 	if(dealerCards->getCount() < longestHand)
 	{
 		for(int i = dealerCards->getCount(); i < longestHand; i++)
-			printf("     ");
+			printf("    ");
 	}
 
 	// display score (or bust)
@@ -302,14 +301,14 @@ void StrategyInteractive::summarize(LinkedList<Card *> *dealerCards,
 
 		// display each card in this hand
 		while((card = cardList->iterate()) != NULL)
-			printf("%c %c  ", card->getRank(), card->getSuit());
+			printf("%c%c  ", card->getRank(), card->getSuit());
 
 		// add some padding, if necessary, so that hand total lines up
 		// in each column
 		if(cardList->getCount() < longestHand)
 		{
 			for(int i = cardList->getCount(); i < longestHand; i++)
-				printf("     ");
+				printf("    ");
 		}
 
 		// display score (or bust) for this hand

@@ -1,5 +1,4 @@
 // Blackjack Simulation : Stats
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,6 +10,8 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
+//
+// This is an updated comment!
 //
 // This is the statistics class, which keeps track of wins/losses
 // for each (initially dealt) hand combination.  This is useful for
@@ -30,10 +31,8 @@
 #include "Card.h"
 #include "Hand.h"
 
-
 // empty declaration to avoid circular dependencies
 class Player;
-
 
 class Statistics
 {

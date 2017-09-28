@@ -1,5 +1,4 @@
 // Blackjack Simulation : Utility Library : LinkedListNode
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,6 +15,8 @@
 // previous entries (making it suitable for a doubly-linked list)
 // and a data entry.
 
+// OH GOD, IT'S C++!!!!?!??!??!??!
+
 #ifndef LINKEDLISTNODE_H
 #define LINKEDLISTNODE_H
 
@@ -26,9 +27,7 @@ class LinkedList;
 template <class T>
 class LinkedListNode
 {
-	// friend LinkedList<T>;
-
-	protected:
+	public:
 		LinkedListNode *next;		// next pointer
 		LinkedListNode *previous;	// previous pointer
 		T data;						// data pointer

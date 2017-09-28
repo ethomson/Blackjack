@@ -1,5 +1,4 @@
 // Blackjack Simulation
-// Copyright (c) 2004, Ed Thomson <ethomson@ravecomm.com>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,7 +23,7 @@ int main(int argc, char **argv)
 	Table *table;
 
 	// default player type is interactive player (playing on console)
-	char *playerType = "interactive";
+	const char *playerType = "interactive";
 
 	// if they provide a strategy type on the command line, let's
 	// use it
